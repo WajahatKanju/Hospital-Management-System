@@ -1,11 +1,11 @@
-from os import environ
+from os import environ, path
 from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv()
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = environ.get("SECRET_KEY")
 DEBUG = True
 ALLOWED_HOSTS = []
@@ -36,7 +36,7 @@ ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [path.join(BASE_DIR, "frontend/dist")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -93,9 +93,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "assets/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+STATICFILES_DIRS = [
+    path.join(BASE_DIR, "frontend/dist/assets"),
+    path.join(BASE_DIR, "frontend/dist"),
+]
