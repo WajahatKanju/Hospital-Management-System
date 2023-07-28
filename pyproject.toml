@@ -1,0 +1,9 @@
+# pyproject.toml
+
+[tool.black]
+line-length = 79
+target-version = ['py38', 'py39']
+exclude = '''
+  /path/to/excluded_directory
+  ^test_.*\.py$
+'''
