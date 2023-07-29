@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
     role = models.OneToOneField(
-        "user.Role",
+        "users.Role",
         verbose_name="user role",
         on_delete=models.CASCADE,
         null=True,

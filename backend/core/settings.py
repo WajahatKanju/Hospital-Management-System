@@ -7,19 +7,26 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = environ.get("SECRET_KEY")
+EMAIL = environ.get("EMAIL")
+PASSWORD = environ.get("APP_PASSWORD")
 DEBUG = True
 ALLOWED_HOSTS = []
 
 # Application definition
 
 INSTALLED_APPS = [
+    # Django
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "user.apps.UserConfig",
+    # Third Party
+    "rest_framework",
+    "djoser",
+    # own
+    "users.apps.UsersConfig",
     "apiV1.apps.Apiv1Config",
     "staff.apps.StaffConfig",
 ]
@@ -113,4 +120,40 @@ STATICFILES_DIRS = [
 ]
 
 
-AUTH_USER_MODEL = "user.CustomUser"
+AUTH_USER_MODEL = "users.CustomUser"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = EMAIL
+EMAIL_HOST_PASSWORD = PASSWORD
+EMAIL_USE_TLS = True
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
+
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("JWT",),
+}
+
+DJOSER = {
+    "LOGIN_FIELD": "username",
+    "USER_CREATE_PASSWORD_RETYPE": True,
+    "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
+    "SEND_CONFIRMATION_EMAIL": True,
+    "SET_USERNAME_RETYPE": True,
+    "SET_PASSWORD_RETYPE": True,
+    "PASSWORD_RESET_CONFIRM_URL": "password/reset/confirm/{uid}/{token}",
+    "USERNAME_RESET_CONFIRM_URL": "email/reset/confirm/{uid}/{token}",
+    "ACTIVATION_URL": "activate/{uid}/{token}",
+    "SEND_ACTIVATION": True,
+    "SERIALIZERS": {
+        "user_create": "users.serializers.UserCreateSerialier",
+        "user": "users.serializers.UserCreateSerialier",
+        "user_delete": "djoser.serializers.UserDeleteSerialier",
+    },
+}
