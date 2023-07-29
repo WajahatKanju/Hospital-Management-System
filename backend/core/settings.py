@@ -19,6 +19,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "user.apps.UserConfig",
+    "apiV1.apps.Apiv1Config",
+    "staff.apps.StaffConfig",
 ]
 
 MIDDLEWARE = [
@@ -108,3 +111,6 @@ STATICFILES_DIRS = [
     path.join(BASE_DIR, "frontend/dist/assets"),
     path.join(BASE_DIR, "frontend/dist"),
 ]
+
+
+AUTH_USER_MODEL = "user.CustomUser"
