@@ -11,38 +11,38 @@
     display: flex;
     align-items: center;
     justify-content : space-between;
-    padding: 5px 10px;
+    padding: 0.5rem 1rem;
   
     .logo {
       display: flex;
       align-items: center;
-      font-size: 24px;
+      font-size: 2.4rem;
       font-weight: bold;
 
       width: 90%;
 
-      border-radius: 5px;
+      border-radius: 0.5rem;
       overflow: hidden;
       cursor: pointer;
       transition: width 0.5s ease-in-out;
       
       span:nth-of-type(1) {
         display: inline-block;
-        margin-right: 5px;
+        margin-right: 0.5rem;
       }
   
       &.motion-logo {
-        width: 45px;
+        width: 4.5rem;
         transition: width 0.5s ease-in-out;
   
         &.open {
-          width: 200px;
+          width: 20rem;
         }
       }
     }
   
     .bars {
-      font-size: 24px;
+      font-size: 2.4rem;
       color: inherit;
       margin: 0 auto;
       cursor: pointer;
@@ -55,10 +55,10 @@
     align-items: center;
     position: relative;
     margin: 0 auto;
-    padding: 5px 10px;
+    padding: 0.5rem 1rem;
   
     .search_icon {
-      font-size: 24px;
+      font-size: 2.4rem;
       color: inherit;
       cursor: pointer;
       margin-right: 8px;
@@ -67,9 +67,9 @@
     input {
       padding-left: 0.5rem;
       border: 1px solid #ccc; /* Replace with the appropriate border color */
-      padding: 8px 12px;
+      padding: 0.5rem 1rem;
       border-radius: 4px;
-      font-size: 14px;
+      font-size: 1.4rem;
       outline: none;
       width: 80%;
       transition: border-color 0.3s ease-in-out;
@@ -84,17 +84,18 @@
     }
   }
 
+  
   .routes {
-    margin-top: 15px;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.5rem;
   
     .link {
       display: flex;
       color: inherit;
-      gap: 10px;
-      padding: 5px 10px;
+      gap: 1rem;
+      padding: 0.5rem 1rem;
       border-right: 4px solid transparent;
       transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
       text-decoration: none;
@@ -112,13 +113,13 @@
   
       .icon {
         /* If you want to style the icons */
-        font-size: 20px;
+        font-size: 2rem;
         /* Additional styles for icons, if required */
       }
   
       .link_text {
         white-space: nowrap;
-        font-size: 15px;
+        font-size: 1.5rem;
       }
     }
   }
@@ -130,72 +131,3 @@
 .hide {
   display: none;
 }
-
-// .search {
-//   display: flex;
-//   align-items: center;
-//   margin: 10px 0;
-//   height: 30px;
-//   padding: 10px;
-//   width: 100%;
-// }
-// .search input {
-//   border: none;
-//   margin-left: 10px;
-//   border-radius: 5px;
-//   background: rgb(238, 238, 238);
-
-//   color: black;
-// }
-
-
-
-// .routes {
-//   margin-top: 15px;
-//   display: flex;
-//   flex-direction: column;
-//   gap: 5px;
-// }
-// .link {
-//   display: flex;
-//   color: white;
-//   gap: 10px;
-//   padding: 5px 10px;
-//   border-right: 4px solid transparent;
-//   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-// }
-// .link:hover {
-//   border-right: 4px solid white;
-//   background: rgb(45, 51, 89);
-//   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-// }
-// .active {
-//   border-right: 4px solid white;
-//   background: rgb(45, 51, 89);
-// }
-// .link_text {
-//   white-space: nowrap;
-//   font-size: 15px;
-// }
-
-// .menu {
-//   display: flex;
-//   color: white;
-
-//   padding: 5px 10px;
-//   border-right: 4px solid transparent;
-//   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-//   justify-content: space-between;
-// }
-// .menu_item {
-//   display: flex;
-//   gap: 10px;
-// }
-// .menu_container {
-//   display: flex;
-//   flex-direction: column;
-// }
-// .menu_container .link {
-//   padding-left: 20px;
-//   border-bottom: #fff 0.5px solid;
-// }

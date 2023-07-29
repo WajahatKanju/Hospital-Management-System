@@ -28,7 +28,7 @@ const routes = [
 
 const Sidebar = ({ children }) => {
 
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
     const inputAnimation = {
@@ -43,7 +43,7 @@ const Sidebar = ({ children }) => {
         },
         show: {
             width: "80%",
-            padding: "5px 15px",
+            padding: "0.5rem 1rem",
             opacity: 1,
             transition: {
                 duration: 0.5
@@ -71,7 +71,7 @@ const Sidebar = ({ children }) => {
 
     return (
     <div className="main-container">
-        <motion.div animate={{ width:isOpen ? "200px" : "45px", transition: {duration: 0.5, type: "spring", damping: 11} }}  className="sidebar">
+        <motion.div animate={{ width:isOpen ? "20rem" : "4.5rem", transition: {duration: 0.5, type: "spring", damping: 9} }}  className="sidebar">
             <div className="top_section">
                 {isOpen && <h1   className="logo">
                    <span> <BiPlusMedical /></span>
