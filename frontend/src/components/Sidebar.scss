@@ -1,0 +1,201 @@
+
+.sidebar {
+  background: var(--color-primary); 
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-white);
+
+  .top_section {
+    display: flex;
+    align-items: center;
+    justify-content : space-between;
+    padding: 5px 10px;
+  
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+
+      width: 90%;
+
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: width 0.5s ease-in-out;
+      
+      span:nth-of-type(1) {
+        display: inline-block;
+        margin-right: 5px;
+      }
+  
+      &.motion-logo {
+        width: 45px;
+        transition: width 0.5s ease-in-out;
+  
+        &.open {
+          width: 200px;
+        }
+      }
+    }
+  
+    .bars {
+      font-size: 24px;
+      color: inherit;
+      margin: 0 auto;
+      cursor: pointer;
+      width: fit-content;
+    }
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    padding: 5px 10px;
+  
+    .search_icon {
+      font-size: 24px;
+      color: inherit;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+  
+    input {
+      padding-left: 0.5rem;
+      border: 1px solid #ccc; /* Replace with the appropriate border color */
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      outline: none;
+      width: 80%;
+      transition: border-color 0.3s ease-in-out;
+  
+      &::placeholder {
+        color: #aaa; /* Replace with the appropriate placeholder color */
+      }
+  
+      &:focus {
+        border-color: #00a5e3; /* Replace with the appropriate focus color */
+      }
+    }
+  }
+
+  .routes {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  
+    .link {
+      display: flex;
+      color: inherit;
+      gap: 10px;
+      padding: 5px 10px;
+      border-right: 4px solid transparent;
+      transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+      text-decoration: none;
+  
+      &:hover {
+        border-right: 4px solid var(--color-neutral-dark);
+        background: var(--color-accent);
+        transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+      }
+  
+      &.active {
+        border-right: 4px solid var(--color-neutral-dark);
+        background: var(--color-accent);
+      }
+  
+      .icon {
+        /* If you want to style the icons */
+        font-size: 20px;
+        /* Additional styles for icons, if required */
+      }
+  
+      .link_text {
+        white-space: nowrap;
+        font-size: 15px;
+      }
+    }
+  }
+  
+}
+
+
+
+.hide {
+  display: none;
+}
+
+// .search {
+//   display: flex;
+//   align-items: center;
+//   margin: 10px 0;
+//   height: 30px;
+//   padding: 10px;
+//   width: 100%;
+// }
+// .search input {
+//   border: none;
+//   margin-left: 10px;
+//   border-radius: 5px;
+//   background: rgb(238, 238, 238);
+
+//   color: black;
+// }
+
+
+
+// .routes {
+//   margin-top: 15px;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 5px;
+// }
+// .link {
+//   display: flex;
+//   color: white;
+//   gap: 10px;
+//   padding: 5px 10px;
+//   border-right: 4px solid transparent;
+//   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+// }
+// .link:hover {
+//   border-right: 4px solid white;
+//   background: rgb(45, 51, 89);
+//   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+// }
+// .active {
+//   border-right: 4px solid white;
+//   background: rgb(45, 51, 89);
+// }
+// .link_text {
+//   white-space: nowrap;
+//   font-size: 15px;
+// }
+
+// .menu {
+//   display: flex;
+//   color: white;
+
+//   padding: 5px 10px;
+//   border-right: 4px solid transparent;
+//   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+//   justify-content: space-between;
+// }
+// .menu_item {
+//   display: flex;
+//   gap: 10px;
+// }
+// .menu_container {
+//   display: flex;
+//   flex-direction: column;
+// }
+// .menu_container .link {
+//   padding-left: 20px;
+//   border-bottom: #fff 0.5px solid;
+// }

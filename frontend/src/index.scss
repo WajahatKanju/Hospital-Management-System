@@ -1,0 +1,42 @@
+// styles.scss
+
+@import 'scss/colors'; // Import the colors
+@import 'scss/mixins'; // Import the mixins
+@import 'scss/variables'; // Import other variables if needed
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  // Define light theme colors
+  @each $name, $color in $colors-light {
+    --color-#{$name}: #{$color};
+  }
+
+  // Define the default theme as light
+  --theme: 'light';
+
+  // Define color scheme properties
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    // Override theme colors with dark theme colors
+    @each $name, $color in $colors-dark {
+      --color-#{$name}: #{$color};
+      
+    }
+    --theme: 'dark';
+  }
+}
+
+/* The rest of your styles and component specific styles */

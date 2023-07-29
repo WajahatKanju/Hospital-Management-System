@@ -1,0 +1,24 @@
+$clr-primary: hsl(196, 75%, 45%); // A shade of blue, representing trust and professionalism
+$clr-secondary: hsl(154, 80%, 49%); // A shade of green, representing health and growth
+$clr-accent: hsl(21, 80%, 49%); // A shade of orange, providing warmth and energy
+
+$clr-neutral-light: #f5f5f5; // A very light gray, creating a clean and sterile feel
+$clr-neutral-dark: #333333; // A dark gray, providing contrast and readability
+
+$colors-light: (
+  primary: $clr-primary,
+  secondary: $clr-secondary,
+  accent: $clr-accent,
+  white: $clr-neutral-light,
+  neutral-light: $clr-neutral-light,
+  neutral-dark: $clr-neutral-dark
+);
+
+$colors-dark: (
+  primary: darken($clr-primary, 10%), // Darken the primary color by 10%
+  secondary: darken($clr-secondary, 15%), // Darken the secondary color by 15%
+  accent: lighten($clr-accent, 5%), // Lighten the accent color by 5%
+  white: $clr-neutral-light,
+  neutral-light: $clr-neutral-dark,
+  neutral-dark: $clr-neutral-light
+);

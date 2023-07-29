@@ -1,4 +1,5 @@
-import { AnimatePresence, m, motion } from "framer-motion";
+import "./Sidebar.scss";
+import { AnimatePresence, motion } from "framer-motion";
 import { FaHome, FaBars } from "react-icons/fa";
 import {FiSettings} from "react-icons/fi";
 import { NavLink } from "react-router-dom";
@@ -27,7 +28,7 @@ const routes = [
 
 const Sidebar = ({ children }) => {
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen);
 
     const inputAnimation = {
@@ -41,7 +42,7 @@ const Sidebar = ({ children }) => {
             
         },
         show: {
-            width: "100%",
+            width: "80%",
             padding: "5px 15px",
             opacity: 1,
             transition: {
@@ -70,11 +71,11 @@ const Sidebar = ({ children }) => {
 
     return (
     <div className="main-container">
-        <motion.div animate={{ width:isOpen ? "200px" : "45px"}} className="sidebar">
+        <motion.div animate={{ width:isOpen ? "200px" : "45px", transition: {duration: 0.5, type: "spring", damping: 11} }}  className="sidebar">
             <div className="top_section">
-                {isOpen && <h1 className="logo">
-                    <BiPlusMedical />
-                    HMS 
+                {isOpen && <h1   className="logo">
+                   <span> <BiPlusMedical /></span>
+                   <span>HMS</span>  
                 </h1> }
                 
                 <div className="bars">
