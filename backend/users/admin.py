@@ -17,26 +17,6 @@ class CustomUserAdmin(UserAdmin):
     # If you want to filter the users based on certain fields
     list_filter = ["role"]
 
-    # The order of the fields in the add/edit forms in the admin
-    fieldsets = (
-        (None, {"fields": ("username", "email", "password")}),
-        ("Personal info", {"fields": ("first_name", "last_name")}),
-        (
-            "Permissions",
-            {
-                "fields": (
-                    "is_active",
-                    "is_staff",
-                    "is_superuser",
-                    "groups",
-                    "user_permissions",
-                )
-            },
-        ),
-        ("Important dates", {"fields": ("last_login", "date_joined")}),
-        ("Roles", {"fields": ("role",)}),  # Add the 'role' field here
-    )
-
     # The order of the fields in the add form in the admin
     add_fieldsets = (
         (
@@ -44,13 +24,10 @@ class CustomUserAdmin(UserAdmin):
             {
                 "classes": ("wide",),
                 "fields": (
-                    "username",
-                    "email",
-                    "password1",
-                    "password2",
-                    "first_name",
-                    "last_name",
-                    "role",
+                    ("username", "email"),
+                    ("first_name", "last_name"),
+                    ("password1", "password2"),
+                    ("role", "is_staff", "is_active"),
                 ),
             },
         ),
