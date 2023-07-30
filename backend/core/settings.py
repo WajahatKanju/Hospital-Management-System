@@ -150,10 +150,18 @@ DJOSER = {
     "PASSWORD_RESET_CONFIRM_URL": "password/reset/confirm/{uid}/{token}",
     "USERNAME_RESET_CONFIRM_URL": "email/reset/confirm/{uid}/{token}",
     "ACTIVATION_URL": "activate/{uid}/{token}",
-    "SEND_ACTIVATION": True,
+    "SEND_ACTIVATION_EMAIL": True,
+    "USER_CREATE_FIELDS": [
+        "email",
+        "username",
+        "first_name",
+        "last_name",
+        "password",
+        "re_password",
+    ],
     "SERIALIZERS": {
-        "user_create": "users.serializers.UserCreateSerialier",
-        "user": "users.serializers.UserCreateSerialier",
-        "user_delete": "djoser.serializers.UserDeleteSerialier",
+        "user_create": "users.serializers.UserCreateSerializer",
+        "user": "users.serializers.UserCreateSerializer",
+        "user_delete": "djoser.serializers.UserDeleteSerializer",
     },
 }
