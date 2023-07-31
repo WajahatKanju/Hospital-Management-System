@@ -1,0 +1,79 @@
+// typography .scss
+$base-font-size: 16px;
+$heading-font-family: 'Arial', sans-serif;
+$body-font-family: 'Roboto', sans-serif;
+$heading-line-height: 1.2;
+$body-line-height: 1.6;
+$heading-font-weight: bold;
+$body-font-weight: normal;
+
+
+
+// Heading styles
+h1 {
+  font-size: 2.5rem;
+  font-family: $heading-font-family;
+  line-height: $heading-line-height;
+  font-weight: $heading-font-weight;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-family: $heading-font-family;
+  line-height: $heading-line-height;
+  font-weight: $heading-font-weight;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-family: $heading-font-family;
+  line-height: $heading-line-height;
+  font-weight: $heading-font-weight;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-family: $heading-font-family;
+  line-height: $heading-line-height;
+  font-weight: $heading-font-weight;
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-family: $heading-font-family;
+  line-height: $heading-line-height;
+  font-weight: $heading-font-weight;
+  margin-bottom: 0.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+  font-family: $heading-font-family;
+  line-height: $heading-line-height;
+  font-weight: $heading-font-weight;
+  margin-bottom: 0.25rem;
+}
+
+// Body text styles
+p {
+  font-size: $base-font-size;
+  font-family: $body-font-family;
+  line-height: $body-line-height;
+  margin-bottom: 1rem;
+}
+
+// Links
+a {
+  color: #007bff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Other typography-related styles

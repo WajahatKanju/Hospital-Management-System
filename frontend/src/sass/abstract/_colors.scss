@@ -1,0 +1,28 @@
+$color-map: (
+  light: (
+    primary: hsl(196, 75%, 45%),
+    secondary: hsl(154, 80%, 49%),
+    accent: hsl(21, 80%, 49%),
+    neutral-light: #f5f5f5,
+    neutral-dark: #333333
+  ),
+  dark: (
+    primary: hsl(210, 90%, 50%),
+    secondary: hsl(200, 70%, 50%),
+    accent: hsl(120, 70%, 50%),
+    neutral-light: #f5f5f5,
+    neutral-dark: #333333
+  )
+);
+
+
+$mode: light;
+
+@media (prefers-color-scheme: dark) {
+    $mode: dark;
+}
+$color-primary: map-get($color-map, $mode, primary);
+$color-secondary: map-get($color-map, $mode, secondary);
+$color-accent: map-get($color-map, $mode, accent);
+$color-neutral-light: map-get($color-map, $mode, neutral-light);
+$color-neutral-dark: map-get($color-map, $mode, neutral-dark);

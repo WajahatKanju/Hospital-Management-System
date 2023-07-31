@@ -1,0 +1,147 @@
+.sidebar {
+  background: $color-primary;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  color: $color-neutral-light;
+
+  &-open {
+    width: $small-size * 15;
+  }
+
+  &-close {
+    width: $small-size * 5;
+  }
+
+  .top_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $medium-spacing;
+    width: 100%;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: $extra-large-spacing;
+      font-weight: bold;
+      border-radius: $small-border-radius;
+      overflow: hidden;
+      cursor: pointer;
+      transition: width $transition-duration $transition-timing-function;
+
+      span:nth-of-type(1) {
+        display: inline-block;
+        margin-right: $small-spacing;
+      }
+      &:hover {
+        color: $color-neutral-dark;
+      }
+
+      &.motion-logo {
+        width: $large-spacing;
+        transition: width $transition-duration $transition-timing-function;
+
+        &.open {
+          width: $extra-large-spacing * 2.5;
+        }
+      }
+    }
+
+    .bars {
+      font-size: $extra-large-spacing;
+      color: inherit;
+      cursor: pointer;
+      width: fit-content;
+
+      &:hover {
+        color: $color-neutral-dark;
+      }
+    }
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    padding: $medium-spacing $medium-spacing;
+    &:hover {
+      color: $color-neutral-dark;
+    }
+
+    .search_icon {
+      font-size: $extra-large-spacing;
+      color: inherit;
+      cursor: pointer;
+      margin-right: $small-spacing;
+      line-height: 2;
+    }
+
+    input {
+      padding: $small-spacing $medium-spacing;
+      border-radius: $small-border-radius;
+      font-size: $medium-spacing;
+      outline: none;
+      width: 80%;
+      transition: border-color $transition-duration $transition-timing-function;
+      font-size: $medium-size;
+      border: 1px solid #ccc; /* Add a default border color */
+      color: $color-neutral-dark; /* Set the default text color */
+      background-color: #fff; /* Set the default background color */
+    
+      &::placeholder {
+        color: #aaa; /* Replace with the appropriate placeholder color */
+      }
+    
+      &:focus {
+        border-color: $color-primary; /* Use the primary color for the border on focus */
+        box-shadow: 0 0 4px $color-primary; /* Add a subtle box shadow on focus */
+      }
+    }
+  }
+
+  .routes {
+    margin-top: $large-spacing;
+    display: flex;
+    flex-direction: column;
+    gap: $small-spacing;
+
+    .link {
+      display: flex;
+      color: inherit;
+      padding: $small-spacing $medium-spacing;
+      border-right: $small-spacing solid transparent;
+      transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+      text-decoration: none;
+      display: flex;
+      flex-wrap: wrap;
+
+      &:hover {
+        border-right: $small-spacing solid $color-neutral-dark;
+        color: $color-neutral-dark;
+        transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+      }
+
+      &.active {
+        border-right: $small-spacing solid $color-neutral-dark;
+        background: $color-accent;
+      }
+
+      .icon {
+        transition: 0.2s;
+        font-size: $large-size;
+        line-height: 100%;
+        /* Additional styles for icons, if required */
+      }
+
+      .link_text {
+        white-space: nowrap;
+        font-size: $medium-size;
+        font-weight: bold;
+        margin: 0 $small-spacing;
+      }
+    }
+  }
+}

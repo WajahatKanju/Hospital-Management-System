@@ -1,0 +1,10 @@
+//  root.scss 
+:root{
+    font-size: 10px;
+}
+
+body{
+    font-family: $body-font-family ;
+    line-height: $body-line-height ;
+    font-weight: $body-font-weight ;
+}

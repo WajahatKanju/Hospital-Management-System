@@ -1,4 +1,3 @@
-import "./Sidebar.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaHome, FaBars } from "react-icons/fa";
 import {FiSettings} from "react-icons/fi";
@@ -7,6 +6,8 @@ import {IoAnalytics} from "react-icons/io5";
 import { BiSearch} from "react-icons/bi"
 import { useState } from "react";
 import {BiPlusMedical} from "react-icons/bi"
+
+import PropTypes from 'prop-types';
 
 const routes = [
     {
@@ -67,7 +68,8 @@ const Sidebar = ({ children }) => {
             },
         }
     }
-    
+
+
 
     return (
     <div className="main-container">
@@ -107,5 +109,9 @@ const Sidebar = ({ children }) => {
         <main>{children}</main>
     </div>)
 }
+
+Sidebar.propTypes = {
+    children: PropTypes.node.isRequired, // Ensure that children is provided and is a valid React node.
+  };
 
 export default Sidebar
