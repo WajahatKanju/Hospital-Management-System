@@ -1,0 +1,83 @@
+// Base color classes
+.color-primary {
+  color: $color-primary;
+}
+
+.color-secondary {
+  color: $color-secondary;
+}
+
+.color-accent {
+  color: $color-accent;
+}
+
+.color-neutral-light {
+  color: $color-neutral-light;
+}
+
+.color-neutral-dark {
+  color: $color-neutral-dark;
+}
+
+// Background color classes
+.bg-primary {
+  background-color: $color-primary;
+}
+
+.bg-secondary {
+  background-color: $color-secondary;
+}
+
+.bg-accent {
+  background-color: $color-accent;
+}
+
+.bg-neutral-light {
+  background-color: $color-neutral-light;
+}
+
+.bg-neutral-dark {
+  background-color: $color-neutral-dark;
+}
+
+// Hover color classes
+.hover-primary:hover {
+  color: $color-primary;
+}
+
+.hover-secondary:hover {
+  color: $color-secondary;
+}
+
+.hover-accent:hover {
+  color: $color-accent;
+}
+
+.hover-neutral-light:hover {
+  color: $color-neutral-light;
+}
+
+.hover-neutral-dark:hover {
+  color: $color-neutral-dark;
+}
+
+// Hover background color classes
+.bg-hover-primary:hover {
+  background-color: $color-primary;
+}
+
+.bg-hover-secondary:hover {
+  background-color: $color-secondary;
+}
+
+.bg-hover-accent:hover {
+  background-color: $color-accent;
+}
+
+.bg-hover-neutral-light:hover {
+  background-color: $color-neutral-light;
+}
+
+.bg-hover-neutral-dark:hover {
+  background-color: $color-neutral-dark;
+}

@@ -1,8 +1,5 @@
-
 const Analytics = () => {
-  return (
-    <div className='title'>Analytics</div>
-  )
-}
+  return <div className="title">Analytics</div>;
+};
 
-export default Analytics
+export default Analytics;

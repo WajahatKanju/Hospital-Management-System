@@ -27,8 +27,6 @@ INSTALLED_APPS = [
     "djoser",
     # own
     "users.apps.UsersConfig",
-    "apiV1.apps.Apiv1Config",
-    "staff.apps.StaffConfig",
 ]
 
 MIDDLEWARE = [
@@ -131,6 +129,9 @@ EMAIL_USE_TLS = True
 
 
 REST_FRAMEWORK = {
+    "DEFAULT_PERMISSIONS_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated"
+        ],
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),

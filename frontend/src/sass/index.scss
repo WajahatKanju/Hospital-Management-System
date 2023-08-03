@@ -1,20 +1,20 @@
 // Import abstract files
-@import 'abstract/_breakpoints';
-@import 'abstract/_colors';
-@import 'abstract/_functions';
-@import 'abstract/_index';
-@import 'abstract/_mixins';
-@import 'abstract/_type';
-@import 'abstract/_variables';
+@import "abstract/_breakpoints";
+@import "abstract/_colors";
+@import "abstract/_functions";
+@import "abstract/_index";
+@import "abstract/_mixins";
+@import "abstract/_type";
+@import "abstract/_variables";
 
 // Import base files
-@import 'base/base';
-@import 'base/reset';
-@import 'base/typography';
-@import 'base/root';
+@import "base/base";
+@import "base/typography";
+@import "base/root";
 
+@import "utils/colors";
+
+@import "components/card";
 
 // Import layouts files
-@import 'layouts/_sidebar';
-
-
+@import "layouts/_sidebar";
