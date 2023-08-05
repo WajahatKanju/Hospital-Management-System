@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
 import { Link, Navigate } from 'react-router-dom'; // Make sure you have installed react-router-dom with the correct version.

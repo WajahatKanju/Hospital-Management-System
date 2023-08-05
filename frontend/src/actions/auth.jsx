@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 // Load environment variables from .env file (only affects this file)
 
@@ -9,54 +9,56 @@ import {
   USER_LOADED_FAIL,
   AUTHENTICATED_SUCCESS,
   AUTHENTICATED_FAIL,
-  LOGOUT
-} from './types';
+  LOGOUT,
+  SIGNUP_FAIL,
+  SIGNUP_SUCCESS,
+} from "./types";
 
-export const checkAuthenticated = () => async dispatch => {
-  if(localStorage.getItem('access')){
+export const checkAuthenticated = () => async (dispatch) => {
+  if (localStorage.getItem("access")) {
     const config = {
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
     };
 
-    const body = JSON.stringify({token: localStorage.getItem('access')})
-    const res = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/jwt/verify/`, body, config);
+    const body = JSON.stringify({ token: localStorage.getItem("access") });
+    const res = await axios.post(
+      `${import.meta.env.VITE_REACT_APP_API_URL}/auth/jwt/verify/`,
+      body,
+      config
+    );
 
-    try{
-      if(res.data.code !== 'toekn_not_valid'){
+    try {
+      if (res.data.code !== "toekn_not_valid") {
         dispatch({
-          type: AUTHENTICATED_SUCCESS
-        })
-
-      }
-      else{
+          type: AUTHENTICATED_SUCCESS,
+        });
+      } else {
         dispatch({
-          type:AUTHENTICATED_FAIL
-        })
+          type: AUTHENTICATED_FAIL,
+        });
       }
-    }
-    catch(err){
+    } catch (err) {
       dispatch({
-        type: AUTHENTICATED_FAIL
+        type: AUTHENTICATED_FAIL,
       });
     }
-
-  } else{
+  } else {
     dispatch({
-      type: AUTHENTICATED_FAIL
+      type: AUTHENTICATED_FAIL,
     });
   }
 };
 
 export const load_user = () => async (dispatch) => {
-  if (localStorage.getItem('access')) {
+  if (localStorage.getItem("access")) {
     const config = {
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `JWT ${localStorage.getItem('access')}`,
-        Accept: 'application/json',
+        "Content-Type": "application/json",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
       },
     };
     try {
@@ -83,7 +85,7 @@ export const load_user = () => async (dispatch) => {
 export const login = (username, password) => async (dispatch) => {
   const config = {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   };
 
@@ -109,9 +111,43 @@ export const login = (username, password) => async (dispatch) => {
   }
 };
 
+export const signup =
+  (username, first_name, last_name, email, password, re_password) =>
+  async (dispatch) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-export const logout = () => dispatch => {
-  dispatch  ({
-    type: LOGOUT
+    const body = JSON.stringify({
+      email: email,
+      username: username,
+      password: password,
+      re_password: re_password,
+      first_name: first_name,
+      last_name: last_name,
+    });
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_REACT_APP_API_URL}/auth/users/`,
+        body,
+        config
+      );
+      console.log(res);
+      dispatch({
+        type: SIGNUP_SUCCESS,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: SIGNUP_FAIL,
+      });
+    }
+  };
+
+export const logout = () => (dispatch) => {
+  dispatch({
+    type: LOGOUT,
   });
 };

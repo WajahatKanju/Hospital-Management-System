@@ -25,12 +25,9 @@ const Login = ({ login, isAuthenticated  }) => {
   }
 
   return (
-    <div className='card'>
-      <div className='card-content'>
-        <div className='card-title'>
-          <h2>LOGIN</h2>
+    <div className='container m-5'>
+          <h2 className='title'>LOGIN</h2>
           <div className='underline-title'></div>
-        </div>
         <form method='post' className='form' onSubmit={(e) => onSubmit(e)}>
           <label htmlFor='user-username'>&nbsp;Username</label>
           <input
@@ -69,7 +66,6 @@ const Login = ({ login, isAuthenticated  }) => {
             </Link>
           </p>
         </form>
-      </div>
     </div>
   );
 };

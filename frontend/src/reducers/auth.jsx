@@ -6,6 +6,8 @@ import {
   AUTHENTICATED_SUCCESS,
   AUTHENTICATED_FAIL,
   LOGOUT,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAIL,
 } from "../actions/types";
 
 const initialState = {
@@ -42,6 +44,12 @@ export default function (
         ...state,
         user: payload,
       };
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: false,
+      }
+
     case AUTHENTICATED_FAIL:
       return {
         ...state,
@@ -55,6 +63,7 @@ export default function (
 
     case LOGIN_FAIL:
     case LOGOUT:
+    case SIGNUP_FAIL:
       localStorage.removeItem("access");
       localStorage.removeItem("refresh");
       return {

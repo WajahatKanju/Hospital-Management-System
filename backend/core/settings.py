@@ -9,6 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = environ.get("SECRET_KEY")
 EMAIL = environ.get("EMAIL")
 PASSWORD = environ.get("APP_PASSWORD")
+
 DEBUG = True
 ALLOWED_HOSTS = []
 

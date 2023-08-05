@@ -1,100 +1,92 @@
-.card {
-  background: #fbfbfb;
-  border-radius: 8px;
-  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-  height: 410px;
-  margin: 6rem auto 8.1rem auto;
-  width: 329px;
+.title {
+  font-family: "Raleway Thin", sans-serif;
+  letter-spacing: 4px;
+  padding-bottom: $extra-large-size;
+  padding-top: $small-size;
+  text-align: center;
+}
+.underline-title {
+  background: -webkit-linear-gradient(right, $color-primary, $color-secondary);
+  height: 2px;
+  margin: -1.1rem auto 0 auto;
+  width: 89px;
+}
 
-  &-full {
-    width: 100%;
-    padding: $extra-large-spacing;
+.form {
+  align-items: left;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    padding: 2px ;
+    font-family: "Raleway", sans-serif;
+    font-size: $medium-size;
   }
 
-  .card-content {
-    padding: $small-size $extra-large-size * 2;
+  .form-row{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    gap: $small-size;
+  }
 
-    .card-title {
-      font-family: "Raleway Thin", sans-serif;
-      letter-spacing: 4px;
-      padding-bottom: $extra-large-size;
-      padding-top: $small-size;
-      text-align: center;
+  .form-column{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
 
-      .underline-title {
-        background: -webkit-linear-gradient(
-          right,
-          $color-primary,
-          $color-secondary
-        );
-        height: 2px;
-        margin: -1.1rem auto 0 auto;
-        width: 89px;
-      }
-    }
+  .forgot-pass {
+    color: $color-neutral-dark;
+    font-family: "Raleway", sans-serif;
+    font-size: $small-size;
+    margin-top: 3px;
+    text-align: right;
+  }
 
-    .form {
-      align-items: left;
-      display: flex;
-      flex-direction: column;
+  .link {
+    color: $color-neutral-dark;
+    font-family: "Raleway", sans-serif;
+    font-size: $small-size;
+    margin-top: $medium-size;
+    text-align: center;
+  }
 
-      label {
-        font-family: "Raleway", sans-serif;
-        font-size: $medium-size;
-      }
-      .forgot-pass {
-        color: $color-neutral-dark;
-        font-family: "Raleway", sans-serif;
-        font-size: $small-size;
-        margin-top: 3px;
-        text-align: right;
-      }
+  .form-btn {
+    background: -webkit-linear-gradient(
+      right,
+      $color-primary,
+      $color-secondary
+    );
+    border: none;
+    border-radius: $extra-large-spacing;
+    box-shadow: 0px 1px 8px $color-secondary;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 42.3px;
+    margin: 0 auto;
+    margin-top: 50px;
+    transition: 0.25s;
+    width: 153px;
+  }
+  .form-btn:hover {
+    box-shadow: 0px 1px 18px $color-primary;
+  }
 
-      .link {
-        color: $color-neutral-dark;
-        font-family: "Raleway", sans-serif;
-        font-size: $small-size;
-        margin-top: $medium-size;
-        text-align: center;
-      }
-
-      .form-btn {
-        background: -webkit-linear-gradient(
-          right,
-          $color-primary,
-          $color-secondary
-        );
-        border: none;
-        border-radius: $extra-large-spacing;
-        box-shadow: 0px 1px 8px $color-secondary;
-        cursor: pointer;
-        color: white;
-        font-family: "Raleway SemiBold", sans-serif;
-        height: 42.3px;
-        margin: 0 auto;
-        margin-top: 50px;
-        transition: 0.25s;
-        width: 153px;
-      }
-      .form-btn:hover {
-        box-shadow: 0px 1px 18px $color-primary;
-      }
-
-      .form-border {
-        background: -webkit-linear-gradient(
-          right,
-          $color-primary,
-          $color-secondary
-        );
-        height: 1px;
-        width: 100%;
-      }
-      .form-content {
-        background: #fbfbfb;
-        border: none;
-        outline: none;
-        padding-top: $medium-size;
-      }
-    }
+  .form-border {
+    background: -webkit-linear-gradient(
+      right,
+      $color-primary,
+      $color-secondary
+    );
+    height: 1px;
+    width: 100%;
+  }
+  .form-content {
+    background: #efefef;
+    border: none;
+    outline: none;
+    padding: $small-size;
   }
 }
