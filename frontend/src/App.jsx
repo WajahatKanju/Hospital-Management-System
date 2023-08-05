@@ -6,6 +6,7 @@ import Analytics from "./pages/Analytics";
 
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
+import Logout from "./components/auth/Logout";
 import ResetPassowrd from "./components/auth/ResetPassowrd";
 import ResetPassowrdConfirmation from "./components/auth/ResetPassowrdConfirmation";
 import Activate from "./components/auth/Activate";
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/settings" element={<Settings />} />
             {/* Authentication */}
+            <Route exact path="/logout" element={<Logout />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/reset_password" element={<ResetPassowrd />} />
