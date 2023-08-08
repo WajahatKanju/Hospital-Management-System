@@ -1,10 +1,25 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react-refresh/only-export-components */
+// Signup.jsx
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signup } from "../../actions/auth";
+import {
+  checkUsernameAvailability,
+  checkEmailAvailability,
+} from "../../actions/authValidation";
 import { Navigate } from "react-router-dom";
 
-const Signup = ({ signup, isAuthenticated }) => {
+const Signup = ({
+  signup,
+  checkUsernameAvailability,
+  checkEmailAvailability,
+  isAuthenticated,
+  usernameAvailable,
+  emailAvailable,
+}) => {
   const [accountCreated, setAccountCreated] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -15,9 +30,12 @@ const Signup = ({ signup, isAuthenticated }) => {
     password: "",
     re_password: "",
   });
+  const [usernameValid, setUsernameValid] = useState(null);
+  const [emailValid, setEmailValid] = useState(null);
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (e) => {
+    return setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const { username, first_name, last_name, email, password, re_password } =
     formData;
@@ -28,6 +46,26 @@ const Signup = ({ signup, isAuthenticated }) => {
       signup(username, first_name, last_name, email, password, re_password);
       setAccountCreated(true);
     }
+  };
+
+  const handleUsernameBlur = () => {
+    setUsernameValid(isUsernameValid(username));
+    checkUsernameAvailability(username);
+  };
+
+  const handleEmailBlur = () => {
+    setEmailValid(isEmailValid(email));
+    checkEmailAvailability(email);
+  };
+
+  const isUsernameValid = (username) => {
+    const usernamePattern = /^[a-zA-Z0-9_]+$/;
+    return usernamePattern.test(username);
+  };
+
+  const isEmailValid = (email) => {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email);
   };
 
   if (isAuthenticated) {
@@ -49,9 +87,21 @@ const Signup = ({ signup, isAuthenticated }) => {
           name="username"
           autoComplete="on"
           value={username}
+          onBlur={handleUsernameBlur}
           onChange={(e) => onChange(e)}
           required
         />
+        {usernameAvailable === false && (
+          <p className="error-message" style={{ color: "red" }}>
+            Username is not available. Already Taken
+          </p>
+        )}
+        {usernameValid === false && (
+          <p className="error-message" style={{ color: "red" }}>
+            Username can only contain letters, numbers, and underscores.
+          </p>
+        )}
+
         <div className="form-border"></div>
 
         <div className="form-row">
@@ -93,9 +143,20 @@ const Signup = ({ signup, isAuthenticated }) => {
           name="email"
           autoComplete="on"
           value={email}
+          onBlur={handleEmailBlur}
           onChange={(e) => onChange(e)}
           required
         />
+        {emailAvailable === false && (
+          <p className="error-message" style={{ color: "red" }}>
+            Email is not available. Already Taken
+          </p>
+        )}
+        {emailValid === false && (
+          <p className="error-message" style={{ color: "red" }}>
+            Please enter a valid email address (e.g., example@example.com).
+          </p>
+        )}
         <div className="form-border"></div>
 
         <div className="form-row">
@@ -127,8 +188,23 @@ const Signup = ({ signup, isAuthenticated }) => {
             <div className="form-border"></div>
           </div>
         </div>
-
-        <button className="form-btn" type="submit" name="submit">
+        <ul className="my-5">
+          <li className="">
+            Your password can’t be too similar to your other personal
+            information.
+          </li>
+          <li className="">
+            Your password must contain at least 8 characters.
+          </li>
+          <li className="">Your password can’t be a commonly used password.</li>
+          <li className="">Your password can’t be entirely numeric.</li>
+        </ul>
+        <button
+          className="form-btn"
+          type="submit"
+          name="submit"
+          disabled={!usernameAvailable || !emailAvailable}
+        >
           Register
         </button>
       </form>
@@ -144,6 +220,12 @@ const Signup = ({ signup, isAuthenticated }) => {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
+  usernameAvailable: state.authValidation.usernameAvailable,
+  emailAvailable: state.authValidation.emailAvailable,
 });
 
-export default connect(mapStateToProps, { signup })(Signup);
+export default connect(mapStateToProps, {
+  checkUsernameAvailability,
+  checkEmailAvailability,
+  signup,
+})(Signup);

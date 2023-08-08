@@ -9,13 +9,7 @@ import {
   SIGNUP_SUCCESS,
   SIGNUP_FAIL,
 } from "../actions/types";
-
-const initialState = {
-  access: localStorage.getItem("access"),
-  refresh: localStorage.getItem("refresh"),
-  isAuthenticated: null,
-  user: null,
-};
+import initialState from "./initialState";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export default function (
@@ -28,8 +22,8 @@ export default function (
     case AUTHENTICATED_SUCCESS:
       return {
         ...state,
-        isAuthenticated: true
-      }
+        isAuthenticated: true,
+      };
     case LOGIN_SUCCESS:
       localStorage.setItem("access", payload.access);
       localStorage.setItem("refresh", payload.refresh);
@@ -48,13 +42,13 @@ export default function (
       return {
         ...state,
         isAuthenticated: false,
-      }
+      };
 
     case AUTHENTICATED_FAIL:
       return {
         ...state,
-        isAuthenticated: false
-      }
+        isAuthenticated: false,
+      };
     case USER_LOADED_FAIL:
       return {
         ...state,
