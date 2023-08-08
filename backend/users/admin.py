@@ -10,7 +10,7 @@ admin.site.register(Role)
 class CustomUserAdmin(UserAdmin):
     # Add any custom fields you want to display in the list view
     list_display = ["username", "email", "first_name", "last_name", "role"]
-
+    readonly_fields = ("date_joined",)
     # Add any custom fields you want to include in the search
     search_fields = ["username", "email", "first_name", "last_name"]
 

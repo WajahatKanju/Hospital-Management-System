@@ -112,7 +112,7 @@ STATIC_URL = "assets/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
+AUTHENTICATION_BACKENDS = ["users.backends.CustomUserBackend"]
 STATICFILES_DIRS = [
     path.join(BASE_DIR, "frontend/dist/assets"),
     path.join(BASE_DIR, "frontend/dist"),
@@ -132,7 +132,7 @@ EMAIL_USE_TLS = True
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSIONS_CLASSES": [
         "rest_framework.permissions.IsAuthenticated"
-        ],
+    ],
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
