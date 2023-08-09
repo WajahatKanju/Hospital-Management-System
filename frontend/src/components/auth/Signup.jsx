@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signup } from "../../actions/auth";
+import zxcvbn from "zxcvbn";
 import {
   checkUsernameAvailability,
   checkEmailAvailability,
@@ -32,6 +33,8 @@ const Signup = ({
   });
   const [usernameValid, setUsernameValid] = useState(null);
   const [emailValid, setEmailValid] = useState(null);
+  const [passwordObject, setPasswordObject] = useState({});
+  const [passwordScore, setPasswordScore] = useState(0);
 
   const onChange = (e) => {
     return setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -56,6 +59,11 @@ const Signup = ({
   const handleEmailBlur = () => {
     setEmailValid(isEmailValid(email));
     checkEmailAvailability(email);
+  };
+
+  const handlePasswordBlur = () => {
+    setPasswordObject(zxcvbn(password));
+    setPasswordScore(zxcvbn(password).score);
   };
 
   const isUsernameValid = (username) => {
@@ -168,10 +176,22 @@ const Signup = ({
               type="password"
               name="password"
               value={password}
+              onBlur={handlePasswordBlur}
               onChange={(e) => onChange(e)}
               required
             />
+
             <div className="form-border"></div>
+            {Object.keys(passwordObject).length > 0 &&
+              passwordObject.feedback.suggestions.map((suggestion, index) => (
+                <p
+                  className="warning-message"
+                  key={index}
+                  style={{ color: "orange" }}
+                >
+                  {suggestion}
+                </p>
+              ))}
           </div>
 
           <div className="form-column">
@@ -190,20 +210,29 @@ const Signup = ({
         </div>
         <ul className="my-5">
           <li className="">
-            Your password can’t be too similar to your other personal
+            Your password can&apos;t be too similar to your other personal
             information.
           </li>
           <li className="">
             Your password must contain at least 8 characters.
           </li>
-          <li className="">Your password can’t be a commonly used password.</li>
-          <li className="">Your password can’t be entirely numeric.</li>
+          <li className="">
+            Your password can&apos;t be a commonly used password.
+          </li>
+          <li className="">Your password can&apos;t be entirely numeric.</li>
+          <li className="">Passowrd Score Must be Equal to 4</li>
         </ul>
+        <b>Score: {passwordScore}</b>
         <button
           className="form-btn"
           type="submit"
           name="submit"
-          disabled={!usernameAvailable || !emailAvailable}
+          disabled={
+            !usernameAvailable ||
+            !emailAvailable ||
+            password != re_password ||
+            passwordScore < 4
+          }
         >
           Register
         </button>
