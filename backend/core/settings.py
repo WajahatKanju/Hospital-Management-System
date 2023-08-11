@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "djoser",
     # own
     "users.apps.UsersConfig",
+    "students.apps.StudentsConfig",
 ]
 
 MIDDLEWARE = [
